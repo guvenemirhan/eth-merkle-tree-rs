@@ -3,8 +3,15 @@ name = "eth-merkle-tree-rs"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "eth-merkle-tree-rs"
+
+[[bin]]
+name = "eth-merkle-tree-rs"
+path = "src/cli/main.rs"
 
 [dependencies]
 petgraph = "0.6.3"
 hex = "0.4.3"
 rust-crypto = "0.2"
+
