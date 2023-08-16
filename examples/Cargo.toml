@@ -1,2 +1,2 @@
 [dependencies]
-merkle_tree_lib = { path = "../../merkle-tree-visualizer" }
+eth_merkle_tree_rs = { path = "../../merkle-tree-visualizer" }

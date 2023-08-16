@@ -1,17 +1,21 @@
 [package]
-name = "eth-merkle-tree-rs"
+name = "eth_merkle_tree_rs"
 version = "0.1.0"
 edition = "2021"
-
-[lib]
-name = "eth-merkle-tree-rs"
-
-[[bin]]
-name = "eth-merkle-tree-rs"
-path = "src/cli/main.rs"
 
 [dependencies]
 petgraph = "0.6.3"
 hex = "0.4.3"
 rust-crypto = "0.2"
+structopt = "0.3"
+indicatif = "0.17"
+csv = "1.1"
+colored = "2.0"
 
+
+[lib]
+name = "eth_merkle_tree_rs"
+
+[[bin]]
+name = "emtr"
+path = "src/cli/main.rs"

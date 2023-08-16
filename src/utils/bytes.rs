@@ -1,4 +1,3 @@
-use std::process::id;
 use crate::utils::errors::BytesError;
 use crate::utils::keccak::keccak256;
 
@@ -36,3 +35,4 @@ fn compare_bytes(a: &str, b: &str) -> Result<std::cmp::Ordering, hex::FromHexErr
 
     Ok(a_bytes.cmp(&b_bytes))
 }
+

@@ -1,9 +1,7 @@
 use std::fs;
-use std::io::Write;
 use std::env;
 use std::process::Command;
 use petgraph::dot::{Config, Dot};
-use petgraph::Graph;
 use crate::tree::MerkleTree;
 
 

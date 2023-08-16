@@ -1,16 +1,11 @@
 extern crate petgraph;
 
 use petgraph::graph::{DiGraph, NodeIndex};
-use petgraph::dot::{Dot, Config};
 use petgraph::visit::EdgeRef;
-use crate::graph;
 use crate::utils::bytes::hash_pair;
-use crate::utils::errors::BytesError;
 use crate::utils::keccak::keccak256;
 
 pub struct MerkleNode {
-    left: Option<Box<MerkleNode>>,
-    right: Option<Box<MerkleNode>>,
     pub data: String,
 }
 
@@ -64,8 +59,6 @@ impl MerkleTree {
 
         let root_data = nodes[0].clone();
         let root_node = MerkleNode {
-            left: None,
-            right: None,
             data: root_data,
         };
 
