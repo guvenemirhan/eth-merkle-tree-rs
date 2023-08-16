@@ -55,8 +55,8 @@ or
 use eth_merkle_tree::tree::MerkleTree;
 
 let data = vec![
-    String::from("0x901Ab22EdCA65188686C9742F2C88c946698bc90),
-    String::from("0x7b95d138cD923476b6e697391DD2aA01D15BAB27),
+    String::from("0x901Ab22EdCA65188686C9742F2C88c946698bc90"),
+    String::from("0x7b95d138cD923476b6e697391DD2aA01D15BAB27"),
 ];
 
 let tree = MerkleTree::new(data).expect("Tree creation error.");

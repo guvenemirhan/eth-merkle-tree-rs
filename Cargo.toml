@@ -12,10 +12,7 @@ edition = "2021"
 petgraph = "0.6"
 hex = "0.4"
 rust-crypto = "0.2"
-structopt = "0.3"
-indicatif = "0.17"
-csv = "1.1"
-colored = "2.0"
+
 
 
 [lib]
@@ -24,3 +21,8 @@ name = "eth_merkle_tree"
 [[bin]]
 name = "emtr"
 path = "src/cli/main.rs"
+
+[target.'cfg(target_arch="x86_64")'.dependencies]
+structopt = "0.3"
+csv = "1.1"
+colored = "2.0"
