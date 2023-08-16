@@ -1,4 +1,7 @@
 # Ethereum Merkle Tree Library (`eth-merkle-tree-rs`)
+![Static Badge](https://img.shields.io/badge/crates.io-black?logo=rust&labelColor=blue&link=https%3A%2F%2Fcrates.io%2Fcrates%2Feth_merkle_tree)
+![Static Badge](https://img.shields.io/badge/Rust-black?logo=rust&labelColor=black&link=https%3A%2F%2Fdocs.rs%2Feth_merkle_tree%2F)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 A Rust library and command-line interface (CLI) for working with Ethereum's Merkle tree structure.
 

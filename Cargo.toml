@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Emirhan Guven <eg.emirhanguven@gmail.com>"]
 description = "A Rust library for constructing and working with Ethereum Merkle Trees."
 repository = "https://github.com/guvenemirhan/eth-merkle-tree-rs"
+documentation = "https://docs.rs/eth_merkle_tree/"
 license = "MIT"
 edition = "2021"
 

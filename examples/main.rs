@@ -44,7 +44,7 @@ fn main() {
 }
 
 fn create_tree(data: &Vec<String>) -> MerkleTree {
-    MerkleTree::new(data.clone()).expect("Tree creation error.")
+    MerkleTree::new(data).expect("Tree creation error.")
 }
 
 fn get_root(tree: &MerkleTree) -> Result<String, Box<dyn Error>> {

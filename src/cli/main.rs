@@ -109,7 +109,7 @@ fn create_tree(path: &PathBuf) -> Result<MerkleTree, Box<dyn Error>> {
             hex_strings.push(line);
         }
     }
-    match MerkleTree::new(hex_strings) {
+    match MerkleTree::new(&hex_strings) {
         Ok(tree) => Ok(tree),
         Err(e) => return Err(e),
     }

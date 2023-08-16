@@ -27,7 +27,7 @@ impl MerkleTree {
     ///
     /// - When there's a problem hashing the data with `keccak256`.
     /// - When the `hash_pair` function encounters issues.
-    pub fn new(data: Vec<String>) -> Result<Self, Box<dyn std::error::Error>> {
+    pub fn new(data: &Vec<String>) -> Result<Self, Box<dyn std::error::Error>> {
         let mut graph = DiGraph::new();
         let mut nodes: Vec<String> = data
             .into_iter()
