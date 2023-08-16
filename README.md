@@ -22,12 +22,18 @@ A Rust library and command-line interface (CLI) for working with Ethereum's Merk
 To include `eth-merkle-tree-rs` in your project, add it to your `Cargo.toml`:
 
 ```toml
-[dependencies]
+[dependencies.lib]
+petgraph = "0.6"
+hex = "0.4"
+rust-crypto = "0.2"
+```
+
+```toml
+[dependencies.bin]
 petgraph = "0.6"
 hex = "0.4"
 rust-crypto = "0.2"
 structopt = "0.3"
-indicatif = "0.17"
 csv = "1.1"
 colored = "2.0"
 ```
@@ -68,6 +74,9 @@ println!("Root: {}", root.data);
 ### Visualizing the Tree
 
 Can visualize the tree structure using the provided visualization tools:
+
+Note: To visualize the Merkle Tree, ensure that [Graphviz](https://www.graphviz.org/)
+is installed on your system.
 
 ```rust
 use eth_merkle_tree::graph::visualizer::graphviz;
