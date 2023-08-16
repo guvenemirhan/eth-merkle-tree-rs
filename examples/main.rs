@@ -1,8 +1,9 @@
 
 use std::error::Error;
-use eth_merkle_tree_rs::graph::visualizer::graphviz;
-use eth_merkle_tree_rs::tree::MerkleTree;
-use eth_merkle_tree_rs::utils::keccak::keccak256;
+use eth_merkle_tree::graph::visualizer::graphviz;
+use eth_merkle_tree::tree::MerkleTree;
+use eth_merkle_tree::utils::keccak::keccak256;
+
 
 fn main() {
     let data = vec![

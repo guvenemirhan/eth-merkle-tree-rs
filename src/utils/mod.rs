@@ -1,3 +1,5 @@
+//! # Utils
+//!
 pub mod bytes;
-pub mod keccak;
 pub mod errors;
+pub mod keccak;

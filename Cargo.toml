@@ -1,11 +1,15 @@
 [package]
-name = "eth_merkle_tree_rs"
+name = "eth_merkle_tree"
 version = "0.1.0"
+authors = ["Emirhan Guven <eg.emirhanguven@gmail.com>"]
+description = "A Rust library for constructing and working with Ethereum Merkle Trees."
+repository = "https://github.com/guvenemirhan/eth-merkle-tree-rs"
+license = "MIT"
 edition = "2021"
 
 [dependencies]
-petgraph = "0.6.3"
-hex = "0.4.3"
+petgraph = "0.6"
+hex = "0.4"
 rust-crypto = "0.2"
 structopt = "0.3"
 indicatif = "0.17"
@@ -14,7 +18,7 @@ colored = "2.0"
 
 
 [lib]
-name = "eth_merkle_tree_rs"
+name = "eth_merkle_tree"
 
 [[bin]]
 name = "emtr"

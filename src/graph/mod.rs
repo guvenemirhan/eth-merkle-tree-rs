@@ -1,1 +1,4 @@
+//! # Graph
+//!
+
 pub mod visualizer;
