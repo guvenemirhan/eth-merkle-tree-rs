@@ -1,14 +1,13 @@
 use crate::utils::{bytes::hash_pair, errors::BytesError, keccak::keccak256};
 pub fn verify_proof(proof: Vec<String>, root: &str, leaf_data: String) -> Result<bool, BytesError> {
     let leaf_hash = keccak256(&leaf_data)?;
-    proof.iter().map(|h| h[2..].to_string())
+    proof
+        .iter()
+        .map(|h| h[2..].to_string())
         .try_fold(leaf_hash.clone(), |acc, sibling_hash| {
             hash_pair(&acc, &sibling_hash)
         })
-        .map(|computed_root| {
-            dbg!(&computed_root);
-            computed_root == root
-        })
+        .map(|computed_root| computed_root == root)
 }
 
 #[cfg(test)]
