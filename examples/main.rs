@@ -44,14 +44,14 @@ fn main() {
     }
 }
 
-fn create_tree(data: &Vec<String>) -> MerkleTree {
+fn create_tree(data: &[String]) -> MerkleTree {
     MerkleTree::new(data).expect("Tree creation error.")
 }
 
 fn get_root(tree: &MerkleTree) -> Result<String, Box<dyn Error>> {
     match &tree.root {
         Some(root) => Ok(root.data.clone()),
-        None => Err(Box::try_from("No root found").unwrap()),
+        None => Err(Box::from("No root found")),
     }
 }
 
