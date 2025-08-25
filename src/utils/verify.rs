@@ -1,6 +1,6 @@
 use crate::utils::{bytes::hash_pair, errors::BytesError, keccak::keccak256};
-pub fn verify_proof(proof: Vec<String>, root: &str, leaf_data: String) -> Result<bool, BytesError> {
-    let leaf_hash = keccak256(&leaf_data)?;
+pub fn verify_proof(proof: Vec<String>, root: &str, leaf_data: &str) -> Result<bool, BytesError> {
+    let leaf_hash = keccak256(leaf_data)?;
     proof
         .iter()
         .map(|h| h[2..].to_string())
@@ -22,7 +22,7 @@ mod tests {
         let leaf_hash = keccak256(&data[0]).expect("Keccak error.");
         let leaf_index = tree.locate_leaf(&leaf_hash).expect("Failed to locate leaf");
         let proof = tree.generate_proof(leaf_index);
-        let result = verify_proof(proof, &root, data[0].clone());
+        let result = verify_proof(proof, &root, &data[0]);
         assert!(result.is_ok());
         assert!(result.unwrap());
     }
@@ -32,11 +32,11 @@ mod tests {
         let data = vec!["0xabc".to_string(), "0xdef".to_string()];
         let tree = MerkleTree::new(&data).expect("Failed to create Merkle Tree");
         let root = tree.root.as_ref().expect("No root found").data.clone();
-        for i in 0..data.len() {
-            let leaf_hash = keccak256(&data[i]).expect("Keccak error.");
+        for leaf in data.iter() {
+            let leaf_hash = keccak256(leaf).expect("Keccak error.");
             let leaf_index = tree.locate_leaf(&leaf_hash).expect("Failed to locate leaf");
             let proof = tree.generate_proof(leaf_index);
-            let result = verify_proof(proof, &root, data[i].clone());
+            let result = verify_proof(proof, &root, leaf);
             assert!(result.is_ok());
             assert!(result.unwrap());
         }
@@ -53,11 +53,11 @@ mod tests {
         ];
         let tree = MerkleTree::new(&data).expect("Failed to create Merkle Tree");
         let root = tree.root.as_ref().expect("No root found").data.clone();
-        for i in 0..data.len() {
-            let leaf_hash = keccak256(&data[i]).expect("Keccak error.");
+        for leaf in data.iter() {
+            let leaf_hash = keccak256(leaf).expect("Keccak error.");
             let leaf_index = tree.locate_leaf(&leaf_hash).expect("Failed to locate leaf");
             let proof = tree.generate_proof(leaf_index);
-            let result = verify_proof(proof, &root, data[i].clone());
+            let result = verify_proof(proof, &root, leaf);
             assert!(result.is_ok());
             assert!(result.unwrap());
         }

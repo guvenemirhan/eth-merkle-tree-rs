@@ -25,8 +25,8 @@ pub fn keccak256(input: &str) -> Result<String, BytesError> {
         let inputs: Vec<&str> = input.split(",").collect();
         value = encode_packed(inputs[0].trim(), inputs[1].trim());
     } else {
-        value = if input.starts_with("0x") {
-            input[2..].to_string()
+        value = if let Some(stripped) = input.strip_prefix("0x") {
+            stripped.to_string()
         } else {
             input.to_string()
         };

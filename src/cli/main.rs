@@ -109,10 +109,7 @@ fn create_tree(path: &PathBuf) -> Result<MerkleTree, Box<dyn Error>> {
             hex_strings.push(line);
         }
     }
-    match MerkleTree::new(&hex_strings) {
-        Ok(tree) => Ok(tree),
-        Err(e) => return Err(e),
-    }
+    MerkleTree::new(&hex_strings)
 }
 
 /// Returns the root of the specified `tree` argument.
@@ -141,7 +138,7 @@ fn create_tree(path: &PathBuf) -> Result<MerkleTree, Box<dyn Error>> {
 fn get_root(tree: &MerkleTree) -> Result<String, Box<dyn Error>> {
     match &tree.root {
         Some(root) => Ok(root.data.clone()),
-        None => Err(Box::try_from("No root found").unwrap()),
+        None => Err(Box::from("No root found")),
     }
 }
 
