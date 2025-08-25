@@ -8,4 +8,5 @@ pub mod utils {
     pub mod bytes;
     pub mod errors;
     pub mod keccak;
+    pub mod verify;
 }
