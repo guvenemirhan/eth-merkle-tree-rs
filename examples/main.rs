@@ -1,9 +1,7 @@
-
-use std::error::Error;
 use eth_merkle_tree::graph::visualizer::graphviz;
 use eth_merkle_tree::tree::MerkleTree;
 use eth_merkle_tree::utils::keccak::keccak256;
-
+use std::error::Error;
 
 fn main() {
     let data = vec![
@@ -37,7 +35,10 @@ fn main() {
     // Getting proof
     if let Some(index) = tree.locate_leaf(&target_hash) {
         let proof = tree.generate_proof(index);
-        println!("Merkle proof for {}: {:?} index: {}", target_hash, proof, index);
+        println!(
+            "Merkle proof for {}: {:?} index: {}",
+            target_hash, proof, index
+        );
     } else {
         println!("Leaf not found in the tree");
     }
@@ -49,11 +50,11 @@ fn create_tree(data: &Vec<String>) -> MerkleTree {
 
 fn get_root(tree: &MerkleTree) -> Result<String, Box<dyn Error>> {
     match &tree.root {
-        Some(root) => {Ok(root.data.clone()) },
+        Some(root) => Ok(root.data.clone()),
         None => Err(Box::try_from("No root found").unwrap()),
     }
 }
 
-fn visualize(tree: &MerkleTree)  {
+fn visualize(tree: &MerkleTree) {
     graphviz(tree).expect("Visualization Error!");
 }
