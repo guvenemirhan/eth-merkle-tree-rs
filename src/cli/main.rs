@@ -10,24 +10,22 @@ use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::PathBuf;
-use structopt::StructOpt;
+use clap::Parser;
 
-#[derive(StructOpt, Debug)]
-#[structopt(name = "eth-merkle-tree-rs", about = "Ethereum Merkle Tree Tool")]
+#[derive(Parser, Debug)]
+#[command(name = "eth-merkle-tree-rs", about = "Ethereum Merkle Tree Tool")]
 pub struct Opt {
     /// Activate tree visualization
-    #[structopt(short, long)]
+    #[arg(short, long)]
     visualize: bool,
 
     /// Provide the leaf for proof retrieval.
-    #[structopt(short, long)]
+    #[arg(short, long)]
     proof: Option<String>,
 
     /// Directory Path
-    #[structopt(parse(from_os_str))]
     dir: PathBuf,
 }
-
 /// Takes user-provided arguments, constructs a Merkle Tree, and prints the results to the console.
 ///
 /// # Examples
@@ -46,7 +44,7 @@ pub struct Opt {
 /// When provided with an invalid argument.
 ///
 fn main() {
-    let opt = Opt::from_args();
+    let opt = Opt::parse();
     let tree = create_tree(&opt.dir)
         .unwrap_or_else(|_| panic!("{}", "Merkle Tree Creation Error".bright_red()));
     let root = get_root(&tree).unwrap_or_else(|_| panic!("{}", "No root found".bright_red()));
