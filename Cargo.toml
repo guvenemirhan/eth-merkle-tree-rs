@@ -1,6 +1,6 @@
 [package]
 name = "eth_merkle_tree"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Emirhan Guven <eg.emirhanguven@gmail.com>"]
 description = "A Rust library for constructing and working with Ethereum Merkle Trees."
 repository = "https://github.com/guvenemirhan/eth-merkle-tree-rs"
