@@ -32,7 +32,6 @@ sha = "0.10"
 [dependencies.bin]
 petgraph = "0.6"
 hex = "0.4"
-structopt = "0.3"
 colored = "2.0"
 ```
 

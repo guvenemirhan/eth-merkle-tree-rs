@@ -23,5 +23,4 @@ name = "emtr"
 path = "src/cli/main.rs"
 
 [target.'cfg(target_arch="x86_64")'.dependencies]
-structopt = "0.3"
 colored = "2.0"

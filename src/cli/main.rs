@@ -2,6 +2,7 @@
 //!
 //! Command line interface for the Ethereum Merkle tree library.
 
+use clap::Parser;
 use colored::*;
 use eth_merkle_tree::tree::MerkleTree;
 use eth_merkle_tree::utils::keccak::keccak256;
@@ -10,7 +11,6 @@ use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::PathBuf;
-use clap::Parser;
 
 #[derive(Parser, Debug)]
 #[command(name = "eth-merkle-tree-rs", about = "Ethereum Merkle Tree Tool")]
