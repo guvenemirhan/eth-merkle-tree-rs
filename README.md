@@ -25,16 +25,14 @@ To include `eth-merkle-tree-rs` in your project, add it to your `Cargo.toml`:
 [dependencies.lib]
 petgraph = "0.6"
 hex = "0.4"
-rust-crypto = "0.2"
+sha = "0.10"
 ```
 
 ```toml
 [dependencies.bin]
 petgraph = "0.6"
 hex = "0.4"
-rust-crypto = "0.2"
 structopt = "0.3"
-csv = "1.1"
 colored = "2.0"
 ```
 

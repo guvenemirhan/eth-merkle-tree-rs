@@ -11,7 +11,7 @@
 //!  ```
 
 use crate::utils::errors::BytesError;
-use crypto::{digest::Digest, sha3::Sha3};
+use sha3::{Digest, Keccak256};
 
 /// Computes the Keccak256 hash of the given input.
 ///
@@ -25,8 +25,8 @@ pub fn keccak256(input: &str) -> Result<String, BytesError> {
         let inputs: Vec<&str> = input.split(",").collect();
         value = encode_packed(inputs[0].trim(), inputs[1].trim());
     } else {
-        value = if input.starts_with("0x") {
-            input[2..].to_string()
+        value = if let Some(stripped) = input.strip_prefix("0x") {
+            stripped.to_string()
         } else {
             input.to_string()
         };
@@ -42,10 +42,9 @@ pub fn keccak256(input: &str) -> Result<String, BytesError> {
             return Err(BytesError::KeccakError(value));
         }
     };
-    let mut hasher = Sha3::keccak256();
-    hasher.input(&*hash);
-    let mut result = [0u8; 32];
-    hasher.result(&mut result);
+    let mut hasher = Keccak256::new();
+    hasher.update(&*hash);
+    let result = hasher.finalize();
     let hex_string: Vec<String> = result.iter().map(|b| format!("{:02x}", b)).collect();
     Ok(hex_string.concat())
 }
